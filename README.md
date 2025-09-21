@@ -262,7 +262,7 @@ docker-compose -f docker-compose.prod.yml up -d
 
 ## 👥 Авторы
 
-- **Ваше имя** - *Первоначальная работа* - [GitHub](https://github.com/yourusername)
+- **София** - [GitHub] (https://github.com/Sofia228-1232323)
 
 ## 🙏 Благодарности
 
