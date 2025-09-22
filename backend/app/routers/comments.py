@@ -71,3 +71,4 @@ def delete_comment(comment_id: int, db: Session = Depends(get_db), current_user:
     db.delete(comment)
     db.commit()
     return {"message": "Comment deleted successfully"}
+

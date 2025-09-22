@@ -30,3 +30,4 @@ def create_category(category: CategoryCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(db_category)
     return db_category
+

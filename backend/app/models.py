@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime, Boolean, ForeignKey, Table
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
-import json
 from .database import Base
 
 # Association table for recipe categories/tags
@@ -63,27 +62,6 @@ class Recipe(Base):
     categories = relationship("Category", secondary=recipe_categories, back_populates="recipes")
     comments = relationship("Comment", back_populates="recipe", cascade="all, delete-orphan")
     likes = relationship("Like", back_populates="recipe", cascade="all, delete-orphan")
-    
-    # Properties for JSON fields
-    @property
-    def ingredients_list(self):
-        if self.ingredients:
-            return json.loads(self.ingredients)
-        return []
-    
-    @property
-    def steps_list(self):
-        if self.steps:
-            return json.loads(self.steps)
-        return []
-    
-    @property
-    def likes_count(self):
-        return len(self.likes)
-    
-    @property
-    def comments_count(self):
-        return len(self.comments)
 
 
 class Comment(Base):

@@ -59,3 +59,4 @@ def check_if_liked(recipe_id: int, db: Session = Depends(get_db), current_user: 
     ).first()
     
     return {"recipe_id": recipe_id, "is_liked": like is not None}
+
