@@ -8,7 +8,7 @@ class TestAuthBusinessLogic:
     
     def test_password_hashing(self):
         """Тест хеширования пароля."""
-        password = "testpassword123"
+        password = "pass123123"
         hashed = get_password_hash(password)
         
         # Хеш должен отличаться от оригинального пароля
@@ -20,14 +20,14 @@ class TestAuthBusinessLogic:
     
     def test_password_verification_correct(self):
         """Тест проверки правильного пароля."""
-        password = "testpassword123"
+        password = "pass123123"
         hashed = get_password_hash(password)
         
         assert verify_password(password, hashed) is True
     
     def test_password_verification_incorrect(self):
         """Тест проверки неправильного пароля."""
-        password = "testpassword123"
+        password = "pass123123"
         wrong_password = "wrongpassword"
         hashed = get_password_hash(password)
         
@@ -35,7 +35,7 @@ class TestAuthBusinessLogic:
     
     def test_password_verification_empty(self):
         """Тест проверки пустого пароля."""
-        password = "testpassword123"
+        password = "pass123123"
         hashed = get_password_hash(password)
         
         assert verify_password("", hashed) is False
@@ -59,7 +59,7 @@ class TestAuthAPI:
         user_data = {
             "email": "newuser@example.com",
             "username": "newuser",
-            "password": "newpassword123"
+            "password": "pass123"
         }
         
         response = client.post("/auth/register", json=user_data)
@@ -73,7 +73,7 @@ class TestAuthAPI:
         user_data = {
             "email": "test@example.com",  # Существующий email
             "username": "newuser",
-            "password": "newpassword123"
+            "password": "pass123"
         }
         
         response = client.post("/auth/register", json=user_data)
@@ -86,7 +86,7 @@ class TestAuthAPI:
         user_data = {
             "email": "newuser@example.com",
             "username": "testuser",  # Существующий username
-            "password": "newpassword123"
+            "password": "pass123"
         }
         
         response = client.post("/auth/register", json=user_data)
@@ -99,7 +99,7 @@ class TestAuthAPI:
         user_data = {
             "email": "invalid-email",
             "username": "newuser",
-            "password": "newpassword123"
+            "password": "pass123"
         }
         
         response = client.post("/auth/register", json=user_data)
@@ -122,7 +122,7 @@ class TestAuthAPI:
         """Тест успешного входа."""
         login_data = {
             "email": "test@example.com",
-            "password": "testpassword"
+            "password": "pass123"
         }
         
         response = client.post("/auth/login", json=login_data)
@@ -147,7 +147,7 @@ class TestAuthAPI:
         """Тест входа несуществующего пользователя."""
         login_data = {
             "email": "nonexistent@example.com",
-            "password": "password123"
+            "password": "pass123"
         }
         
         response = client.post("/auth/login", json=login_data)

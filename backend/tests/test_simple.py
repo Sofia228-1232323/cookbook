@@ -9,15 +9,15 @@ class TestSimpleBusinessLogic:
 
     def test_password_hashing(self):
         """Тест хеширования пароля."""
-        password = "testpassword"
+        password = "pass123"
         hashed_password = get_password_hash(password)
         assert hashed_password != password
         assert verify_password(password, hashed_password)
 
     def test_password_verification_failure(self):
         """Тест неудачной верификации пароля."""
-        password = "testpassword"
-        wrong_password = "wrongpassword"
+        password = "pass123"
+        wrong_password = "wrongpass"
         hashed_password = get_password_hash(password)
         assert not verify_password(wrong_password, hashed_password)
 
@@ -26,7 +26,7 @@ class TestSimpleBusinessLogic:
         user = User(
             email="test@example.com", 
             username="testuser", 
-            hashed_password=get_password_hash("testpassword")
+            hashed_password=get_password_hash("pass123")
         )
         db_session.add(user)
         db_session.commit()
@@ -92,7 +92,7 @@ class TestSimpleAPI:
         user_data = {
             "email": "newuser@example.com",
             "username": "newuser",
-            "password": "newpassword123"
+            "password": "pass123"
         }
         response = client.post("/auth/register", json=user_data)
         assert response.status_code == status.HTTP_200_OK
@@ -101,7 +101,7 @@ class TestSimpleAPI:
         """Тест успешного входа."""
         login_data = {
             "email": "test@example.com",
-            "password": "testpassword"
+            "password": "pass123"
         }
         response = client.post("/auth/login", json=login_data)
         assert response.status_code == status.HTTP_200_OK
