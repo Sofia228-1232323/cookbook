@@ -21,12 +21,11 @@ class User(Base):
     hashed_password = Column(String, nullable=False)
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
-    updated_at = Column(DateTime(timezone=True), onupdate=func.now())
 
     # Relationships
-    recipes = relationship("Recipe", back_populates="author")
-    comments = relationship("Comment", back_populates="author")
-    likes = relationship("Like", back_populates="user")
+    recipes = relationship("Recipe", back_populates="author", cascade="all, delete-orphan")
+    comments = relationship("Comment", back_populates="author", cascade="all, delete-orphan")
+    likes = relationship("Like", back_populates="user", cascade="all, delete-orphan")
 
 
 class Category(Base):
@@ -63,6 +62,24 @@ class Recipe(Base):
     comments = relationship("Comment", back_populates="recipe", cascade="all, delete-orphan")
     likes = relationship("Like", back_populates="recipe", cascade="all, delete-orphan")
 
+    @property
+    def ingredients_list(self):
+        import json
+        return json.loads(self.ingredients) if self.ingredients else []
+
+    @property
+    def steps_list(self):
+        import json
+        return json.loads(self.steps) if self.steps else []
+
+    @property
+    def likes_count(self):
+        return len(self.likes) if hasattr(self, "likes") else 0
+
+    @property
+    def comments_count(self):
+        return len(self.comments) if hasattr(self, "comments") else 0
+
 
 class Comment(Base):
     __tablename__ = "comments"
@@ -90,7 +107,3 @@ class Like(Base):
     # Relationships
     user = relationship("User", back_populates="likes")
     recipe = relationship("Recipe", back_populates="likes")
-
-    # Ensure unique like per user per recipe
-    __table_args__ = ({"extend_existing": True},)
-

@@ -3,6 +3,7 @@ from typing import Optional
 
 
 class Settings(BaseSettings):
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     database_url: str = "sqlite:///./cookbook.db"
     secret_key: str = "your-secret-key-change-in-production"
     algorithm: str = "HS256"

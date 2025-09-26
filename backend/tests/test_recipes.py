@@ -173,7 +173,7 @@ class TestRecipeAPI:
     
     def test_get_recipes_with_category_filter(self, client, test_category):
         """Тест фильтрации рецептов по категории."""
-        response = client.get(f"/recipes?category_id={test_category.id}")
+        response = client.get(f"/recipes?
         
         assert response.status_code == status.HTTP_200_OK
         data = response.json()
