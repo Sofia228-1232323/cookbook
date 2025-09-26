@@ -98,11 +98,15 @@ jobs:
     
     - name: Build Docker images
       run: |
-        docker-compose -f docker-compose.yml build
+        docker-compose build --no-cache
     
     - name: Test Docker containers
       run: |
-        docker-compose -f docker-compose.yml up -d
+        docker-compose up -d db
+        sleep 10
+        docker-compose up -d backend
+        sleep 10
+        docker-compose up -d frontend
         sleep 30
         docker-compose ps
         docker-compose down
