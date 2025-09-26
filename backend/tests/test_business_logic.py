@@ -90,7 +90,7 @@ class TestRecipeBusinessLogic:
             ingredients='["ingredient1", "ingredient2"]',
             steps='["step1", "step2"]',
             author_id=test_user.id,
-            category_id=test_category.id
+            
         )
         db_session.add(recipe)
         db_session.commit()
@@ -109,7 +109,7 @@ class TestRecipeBusinessLogic:
             ingredients='["ingredient1", "ingredient2", "ingredient3"]',
             steps='["step1"]',
             author_id=test_user.id,
-            category_id=test_category.id
+            
         )
         db_session.add(recipe)
         db_session.commit()
@@ -129,7 +129,7 @@ class TestRecipeBusinessLogic:
             ingredients='["ingredient1"]',
             steps='["step1", "step2", "step3", "step4"]',
             author_id=test_user.id,
-            category_id=test_category.id
+            
         )
         db_session.add(recipe)
         db_session.commit()
@@ -151,7 +151,7 @@ class TestRecipeBusinessLogic:
             ingredients='["ingredient1"]',
             steps='["step1"]',
             author_id=test_user.id,
-            category_id=test_category.id
+            
         )
         db_session.add(recipe)
         db_session.commit()
@@ -194,7 +194,7 @@ class TestRecipeBusinessLogic:
             ingredients='["ingredient1"]',
             steps='["step1"]',
             author_id=test_user.id,
-            category_id=test_category.id
+            
         )
         db_session.add(recipe)
         db_session.commit()
@@ -410,7 +410,7 @@ class TestDataIntegrity:
             ingredients='["ingredient1"]',
             steps='["step1"]',
             author_id=test_user.id,
-            category_id=test_category.id
+            
         )
         db_session.add(recipe)
         db_session.commit()
@@ -450,7 +450,7 @@ class TestDataIntegrity:
             ingredients='["ingredient1"]',
             steps='["step1"]',
             author_id=test_user.id,
-            category_id=test_category.id
+            
         )
         db_session.add(recipe)
         db_session.commit()

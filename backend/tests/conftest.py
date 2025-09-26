@@ -95,7 +95,7 @@ def test_recipe(db_session, test_user, test_category):
         ingredients='["ingredient1", "ingredient2"]',
         steps='["step1", "step2"]',
         author_id=test_user.id,
-        category_id=test_category.id
+        
     )
     db_session.add(recipe)
     db_session.commit()
