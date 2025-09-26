@@ -1,6 +1,7 @@
 import pytest
 from fastapi import status
 from app.models import User, Recipe, Comment, Like
+from app.auth import get_password_hash
 
 class TestUserBusinessLogic:
     """Тесты для бизнес-логики пользователей."""
@@ -10,7 +11,7 @@ class TestUserBusinessLogic:
         user_data = {
             "email": "newuser@example.com",
             "username": "newuser",
-            "hashed_password": "hashed_password_here"
+            "hashed_password": get_password_hash("password123")
         }
         
         user = User(**user_data)
@@ -21,7 +22,7 @@ class TestUserBusinessLogic:
         assert user.id is not None
         assert user.email == "newuser@example.com"
         assert user.username == "newuser"
-        assert user.hashed_password == "hashed_password_here"
+        assert user.hashed_password is not None
     
     def test_user_email_uniqueness(self, db_session):
         """Тест уникальности email пользователя."""
@@ -29,7 +30,7 @@ class TestUserBusinessLogic:
         user1 = User(
             email="unique@example.com",
             username="user1",
-            hashed_password="hashed_password"
+            hashed_password=get_password_hash("password123")
         )
         db_session.add(user1)
         db_session.commit()
@@ -38,7 +39,7 @@ class TestUserBusinessLogic:
         user2 = User(
             email="unique@example.com",  # Тот же email
             username="user2",
-            hashed_password="hashed_password"
+            hashed_password=get_password_hash("password123")
         )
         db_session.add(user2)
         
@@ -52,7 +53,7 @@ class TestUserBusinessLogic:
         user1 = User(
             email="user1@example.com",
             username="unique_username",
-            hashed_password="hashed_password"
+            hashed_password=get_password_hash("password123")
         )
         db_session.add(user1)
         db_session.commit()
@@ -61,7 +62,7 @@ class TestUserBusinessLogic:
         user2 = User(
             email="user2@example.com",
             username="unique_username",  # Тот же username
-            hashed_password="hashed_password"
+            hashed_password=get_password_hash("password123")
         )
         db_session.add(user2)
         

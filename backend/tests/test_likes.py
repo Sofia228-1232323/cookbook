@@ -1,6 +1,7 @@
 import pytest
 from fastapi import status
 from app.models import Like, Recipe, User
+from app.auth import get_password_hash
 
 class TestLikeBusinessLogic:
     """Тесты для бизнес-логики лайков."""
@@ -78,12 +79,12 @@ class TestLikeBusinessLogic:
         user2 = User(
             email="user2@example.com",
             username="user2",
-            hashed_password="hashed_password"
+            hashed_password=get_password_hash("password123")
         )
         user3 = User(
             email="user3@example.com",
             username="user3",
-            hashed_password="hashed_password"
+            hashed_password=get_password_hash("password123")
         )
         db_session.add(user2)
         db_session.add(user3)
