@@ -27,7 +27,7 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
     else:
         expire = datetime.utcnow() + timedelta(minutes=settings.access_token_expire_minutes)
     to_encode.update({"exp": expire})
-    encoded_jwt = pyjwt.encode(to_encode, settings.secret_key, algorithm=settings.algorithm)
+    encoded_jwt = pyjwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
     return encoded_jwt
 
 def get_user_by_email(db: Session, email: str):
@@ -100,7 +100,7 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
         headers={"WWW-Authenticate": "Bearer"},
     )
     try:
-        payload = pyjwt.decode(token, settings.secret_key, algorithms=[settings.algorithm])
+        payload = pyjwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
         email: str = payload.get("sub")
         if email is None:
             raise credentials_exception

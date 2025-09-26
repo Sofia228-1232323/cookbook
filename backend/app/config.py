@@ -5,8 +5,8 @@ from typing import Optional
 class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     database_url: str = "sqlite:///./cookbook.db"
-    secret_key: str = "your-secret-key-change-in-production"
-    algorithm: str = "HS256"
+    SECRET_KEY: str = "your-secret-key-change-in-production"
+    ALGORITHM: str = "HS256"
     access_token_expire_minutes: int = 30
     upload_dir: str = "uploads"
     max_file_size: int = 5242880  # 5MB
