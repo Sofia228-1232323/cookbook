@@ -70,7 +70,7 @@ def test_user(db_session):
     user = User(
         email="test@example.com",
         username="testuser",
-        hashed_password="$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj2Qj5Qj5Qj5Q"
+        hashed_password="$2b$12$$2b$12$abcdefghijklmnopqrstuvwxyz123456789"
     )
     db_session.add(user)
     db_session.commit()
