@@ -8,7 +8,7 @@ class TestAuthBusinessLogic:
     
     def test_password_hashing(self):
         """Тест хеширования пароля."""
-        password = "pass123123"
+        password = "pass123"
         hashed = get_password_hash(password)
         
         # Хеш должен отличаться от оригинального пароля
@@ -20,22 +20,22 @@ class TestAuthBusinessLogic:
     
     def test_password_verification_correct(self):
         """Тест проверки правильного пароля."""
-        password = "pass123123"
+        password = "pass123"
         hashed = get_password_hash(password)
         
         assert verify_password(password, hashed) is True
     
     def test_password_verification_incorrect(self):
         """Тест проверки неправильного пароля."""
-        password = "pass123123"
-        wrong_password = "wrongpassword"
+        password = "pass123"
+        wrong_password = "wrongpass"
         hashed = get_password_hash(password)
         
         assert verify_password(wrong_password, hashed) is False
     
     def test_password_verification_empty(self):
         """Тест проверки пустого пароля."""
-        password = "pass123123"
+        password = "pass123"
         hashed = get_password_hash(password)
         
         assert verify_password("", hashed) is False
@@ -135,7 +135,7 @@ class TestAuthAPI:
         """Тест входа с неправильным паролем."""
         login_data = {
             "email": "test@example.com",
-            "password": "wrongpassword"
+            "password": "wrongpass"
         }
         
         response = client.post("/auth/login", json=login_data)
