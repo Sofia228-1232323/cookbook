@@ -28,7 +28,7 @@ class TestUserBusinessLogic:
         user1 = User(
             email="unique@example.com",
             username="user1",
-            hashed_password=get_password_hash("pass123")
+            hashed_password=get_password_hash("pass")
         )
         db_session.add(user1)
         db_session.commit()
@@ -37,7 +37,7 @@ class TestUserBusinessLogic:
         user2 = User(
             email="unique@example.com",
             username="user2",
-            hashed_password=get_password_hash("pass123")
+            hashed_password=get_password_hash("pass")
         )
         db_session.add(user2)
         
@@ -49,7 +49,7 @@ class TestUserBusinessLogic:
         user1 = User(
             email="user1@example.com",
             username="unique_username",
-            hashed_password=get_password_hash("pass123")
+            hashed_password=get_password_hash("pass")
         )
         db_session.add(user1)
         db_session.commit()
@@ -58,7 +58,7 @@ class TestUserBusinessLogic:
         user2 = User(
             email="user2@example.com",
             username="unique_username",
-            hashed_password=get_password_hash("pass123")
+            hashed_password=get_password_hash("pass")
         )
         db_session.add(user2)
         
@@ -161,12 +161,12 @@ class TestRecipeBusinessLogic:
         user2 = User(
             email="user2@example.com",
             username="user2",
-            hashed_password=get_password_hash("pass123")
+            hashed_password=get_password_hash("pass")
         )
         user3 = User(
             email="user3@example.com",
             username="user3",
-            hashed_password=get_password_hash("pass123")
+            hashed_password=get_password_hash("pass")
         )
         db_session.add(user2)
         db_session.add(user3)

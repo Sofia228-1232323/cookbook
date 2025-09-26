@@ -11,7 +11,7 @@ class TestUserBusinessLogic:
         user_data = {
             "email": "newuser@example.com",
             "username": "newuser",
-            "hashed_password": get_password_hash("pass123")
+            "hashed_password": get_password_hash("pass")
         }
         
         user = User(**user_data)
