@@ -128,8 +128,8 @@ class TestCommentAPI:
             author_id=test_user.id,
             recipe_id=test_recipe.id
         )
-        from app.database import get_db
-        db = next(get_db())
+        
+        db = db_session
         db.add(comment)
         db.commit()
         db.refresh(comment)
@@ -158,8 +158,8 @@ class TestCommentAPI:
             author_id=test_user.id,
             recipe_id=test_recipe.id
         )
-        from app.database import get_db
-        db = next(get_db())
+        
+        db = db_session
         db.add(comment)
         db.commit()
         db.refresh(comment)
@@ -178,8 +178,8 @@ class TestCommentAPI:
             author_id=test_user.id,
             recipe_id=test_recipe.id
         )
-        from app.database import get_db
-        db = next(get_db())
+        
+        db = db_session
         db.add(comment)
         db.commit()
         db.refresh(comment)
@@ -203,8 +203,8 @@ class TestCommentAPI:
             author_id=test_user.id,
             recipe_id=test_recipe.id
         )
-        from app.database import get_db
-        db = next(get_db())
+        
+        db = db_session
         db.add(comment)
         db.commit()
         db.refresh(comment)
@@ -228,8 +228,8 @@ class TestCommentAPI:
             author_id=test_user.id,
             recipe_id=test_recipe.id
         )
-        from app.database import get_db
-        db = next(get_db())
+        
+        db = db_session
         db.add(comment)
         db.commit()
         db.refresh(comment)

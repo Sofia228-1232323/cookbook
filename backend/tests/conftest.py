@@ -6,7 +6,7 @@ from fastapi.testclient import TestClient
 from httpx import AsyncClient
 
 from app.main import app
-from app.database import get_db, Base
+, Base
 from app.models import User, Category, Recipe, Comment, Like
 from app.auth import get_password_hash
 
