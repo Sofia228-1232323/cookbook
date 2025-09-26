@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import api from '../config/api';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { User, Mail, Calendar, Plus, Edit, Trash2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
