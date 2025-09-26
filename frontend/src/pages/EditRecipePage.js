@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../config/api';
 import toast from 'react-hot-toast';
-import { Plus, Minus, Upload, Save, ArrowLeft, Loader } from 'lucide-react';
+import { Plus, Minus, Save, ArrowLeft, Loader } from 'lucide-react';
 
 const EditRecipePage = () => {
   const { id } = useParams();

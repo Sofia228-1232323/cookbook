@@ -11,7 +11,7 @@ class TestUserBusinessLogic:
         user_data = {
             "email": "newuser@example.com",
             "username": "newuser",
-            "hashed_password": get_password_hash("pass")
+            "hashed_password": "$2b$12$test_hash_here"
         }
         
         user = User(**user_data)
@@ -30,7 +30,7 @@ class TestUserBusinessLogic:
         user1 = User(
             email="unique@example.com",
             username="user1",
-            hashed_password=get_password_hash("password123")
+            hashed_password="$2b$12$test_hash_here"
         )
         db_session.add(user1)
         db_session.commit()
@@ -39,7 +39,7 @@ class TestUserBusinessLogic:
         user2 = User(
             email="unique@example.com",  # Тот же email
             username="user2",
-            hashed_password=get_password_hash("password123")
+            hashed_password="$2b$12$test_hash_here"
         )
         db_session.add(user2)
         
@@ -53,7 +53,7 @@ class TestUserBusinessLogic:
         user1 = User(
             email="user1@example.com",
             username="unique_username",
-            hashed_password=get_password_hash("password123")
+            hashed_password="$2b$12$test_hash_here"
         )
         db_session.add(user1)
         db_session.commit()
@@ -62,7 +62,7 @@ class TestUserBusinessLogic:
         user2 = User(
             email="user2@example.com",
             username="unique_username",  # Тот же username
-            hashed_password=get_password_hash("password123")
+            hashed_password="$2b$12$test_hash_here"
         )
         db_session.add(user2)
         

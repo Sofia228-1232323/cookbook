@@ -79,12 +79,12 @@ class TestLikeBusinessLogic:
         user2 = User(
             email="user2@example.com",
             username="user2",
-            hashed_password=get_password_hash("pass")
+            hashed_password="$2b$12$test_hash_here"
         )
         user3 = User(
             email="user3@example.com",
             username="user3",
-            hashed_password=get_password_hash("pass")
+            hashed_password="$2b$12$test_hash_here"
         )
         db_session.add(user2)
         db_session.add(user3)
