@@ -193,7 +193,7 @@ const EditRecipePage = () => {
       
       console.log('Recipe updated successfully:', response.data);
       toast.success('Рецепт успешно обновлен!');
-      navigate(`/recipe/${id}`);
+      navigate(`/app/recipe/${id}`);
       
     } catch (error) {
       console.error('Error updating recipe:', error);
@@ -226,7 +226,7 @@ const EditRecipePage = () => {
       {/* Header */}
       <div className="flex items-center space-x-4 mb-6">
         <button
-          onClick={() => navigate(`/recipe/${id}`)}
+          onClick={() => navigate(`/app/recipe/${id}`)}
           className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
         >
           <ArrowLeft size={20} />
@@ -375,7 +375,7 @@ const EditRecipePage = () => {
         <div className="flex justify-end space-x-4">
           <button
             type="button"
-            onClick={() => navigate(`/recipe/${id}`)}
+            onClick={() => navigate(`/app/recipe/${id}`)}
             className="px-6 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
           >
             Отмена

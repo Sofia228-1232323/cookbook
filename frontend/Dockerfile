@@ -1,4 +1,5 @@
-FROM node:18-alpine
+# Multi-stage build for production
+FROM node:18-alpine AS build
 
 WORKDIR /app
 
@@ -11,10 +12,26 @@ RUN npm install
 # Copy source code
 COPY . .
 
-# Expose port
-EXPOSE 3000
+# Set environment variable for build
+ARG REACT_APP_API_URL=http://localhost:8000
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
 
-# Start the application
-CMD ["npm", "start"]
+# Build the application
+RUN npm run build
+
+# Production stage
+FROM nginx:alpine
+
+# Copy built app from build stage
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Copy nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose port
+EXPOSE 80
+
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
 
 

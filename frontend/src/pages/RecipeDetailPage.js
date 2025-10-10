@@ -224,7 +224,7 @@ const RecipeDetailPage = () => {
               {/* Кнопка редактирования для автора */}
               {user && (user.id === recipe.author_id || user.is_admin) && (
                 <button
-                  onClick={() => navigate(`/edit-recipe/${id}`)}
+                  onClick={() => navigate(`/app/edit-recipe/${id}`)}
                   className="flex items-center space-x-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
                 >
                   <Edit className="h-5 w-5" />

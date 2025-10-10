@@ -18,7 +18,7 @@ const LoginForm = () => {
       const result = await login(data.email, data.password);
       if (result.success) {
         toast.success('Успешный вход!');
-        navigate('/');
+        navigate('/app');
       } else {
         toast.error(result.error);
       }

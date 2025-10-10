@@ -127,7 +127,7 @@ const ProfilePage = () => {
             Мои рецепты ({userRecipes.length})
           </h2>
           <Link
-            to="/add-recipe"
+            to="/app/add-recipe"
             className="flex items-center space-x-2 px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors"
           >
             <Plus className="h-5 w-5" />
@@ -145,7 +145,7 @@ const ProfilePage = () => {
               У вас пока нет рецептов
             </p>
             <Link
-              to="/add-recipe"
+              to="/app/add-recipe"
               className="inline-flex items-center space-x-2 px-6 py-3 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors"
             >
               <Plus className="h-5 w-5" />
@@ -187,13 +187,13 @@ const ProfilePage = () => {
 
                   <div className="flex items-center space-x-2">
                     <Link
-                      to={`/recipe/${recipe.id}`}
+                      to={`/app/recipe/${recipe.id}`}
                       className="flex-1 text-center px-3 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors text-sm"
                     >
                       Просмотреть
                     </Link>
                     <Link
-                      to={`/edit-recipe/${recipe.id}`}
+                      to={`/app/edit-recipe/${recipe.id}`}
                       className="p-2 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                       title="Редактировать"
                     >

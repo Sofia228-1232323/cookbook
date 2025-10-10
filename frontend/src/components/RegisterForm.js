@@ -20,7 +20,7 @@ const RegisterForm = () => {
       const result = await registerUser(data.email, data.username, data.password);
       if (result.success) {
         toast.success('Регистрация прошла успешно!');
-        navigate('/');
+        navigate('/app');
       } else {
         toast.error(result.error);
       }

@@ -32,7 +32,7 @@ const Layout = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2">
+            <Link to="/app" className="flex items-center space-x-2">
               <ChefHat className="h-8 w-8 text-primary-600 dark:text-primary-400" />
               <span className="text-xl font-bold text-gray-900 dark:text-white">
                 Cookbook
@@ -42,9 +42,9 @@ const Layout = () => {
             {/* Navigation Links */}
             <div className="hidden md:flex items-center space-x-8">
               <Link
-                to="/"
+                to="/app"
                 className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  location.pathname === '/'
+                  location.pathname === '/app'
                     ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
                     : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
                 }`}
@@ -55,9 +55,9 @@ const Layout = () => {
 
               {isAuthenticated && (
                 <Link
-                  to="/add-recipe"
+                  to="/app/add-recipe"
                   className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    location.pathname === '/add-recipe'
+                    location.pathname === '/app/add-recipe'
                       ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
                       : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
                   }`}
@@ -69,9 +69,9 @@ const Layout = () => {
 
               {isAuthenticated && (
                 <Link
-                  to="/favorites"
+                  to="/app/favorites"
                   className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    location.pathname === '/favorites'
+                    location.pathname === '/app/favorites'
                       ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
                       : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
                   }`}
@@ -83,9 +83,9 @@ const Layout = () => {
 
               {isAuthenticated && (
                 <Link
-                  to="/profile"
+                  to="/app/profile"
                   className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    location.pathname === '/profile'
+                    location.pathname === '/app/profile'
                       ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
                       : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
                   }`}

@@ -43,7 +43,7 @@ const RecipeCard = ({ recipe }) => {
   };
 
   return (
-    <Link to={`/recipe/${recipe.id}`} className="group">
+    <Link to={`/app/recipe/${recipe.id}`} className="group">
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden">
                 {/* Image */}
                 <div className="aspect-w-16 aspect-h-9 bg-gray-200 dark:bg-gray-700">

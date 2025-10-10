@@ -17,6 +17,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",  # React dev server
         "http://127.0.0.1:3000",  # Alternative localhost
+        "http://localhost",       # Production frontend (port 80)
+        "http://127.0.0.1",       # Production frontend (port 80)
         "http://192.168.0.14:3000",  # Network IP
         "http://192.168.0.14:3001",  # Current frontend port
         "http://192.168.0.14:8000",  # Backend IP

@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import Layout from './components/Layout';
+import WelcomePage from './pages/WelcomePage';
 import HomePage from './pages/HomePage';
 import RecipeDetailPage from './pages/RecipeDetailPage';
 import AddRecipePage from './pages/AddRecipePage';
@@ -63,11 +64,12 @@ function App() {
             
             <Routes>
               {/* Public routes */}
+              <Route path="/" element={<WelcomePage />} />
               <Route path="/login" element={<LoginForm />} />
               <Route path="/register" element={<RegisterForm />} />
               
               {/* Protected routes with layout */}
-              <Route path="/" element={<Layout />}>
+              <Route path="/app" element={<Layout />}>
                 <Route index element={<HomePage />} />
                 <Route path="recipe/:id" element={<RecipeDetailPage />} />
                         <Route 
@@ -104,7 +106,7 @@ function App() {
                         />
               </Route>
               
-              {/* Redirect unknown routes to home */}
+              {/* Redirect unknown routes to welcome */}
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </div>

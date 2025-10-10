@@ -127,7 +127,7 @@ const AddRecipePage = () => {
       });
 
       toast.success('Рецепт успешно создан!');
-      navigate(`/recipe/${response.data.id}`);
+      navigate(`/app/recipe/${response.data.id}`);
     } catch (error) {
       console.error('Error creating recipe:', error);
       toast.error('Ошибка при создании рецепта');
